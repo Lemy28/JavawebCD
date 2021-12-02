@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+	<style>
+		.menu {font-weight:bold; font-size:1em; padding:2em}
+		tr {line-height:2.5em}
+	</style>
+<title>JavaWeb投票系统</title>
+</head>
+
+<body style='background-color:#D2FFD2'>
+<div style='text-align:center;padding:0.7em'><h1>动漫人物人气投票</h1>
+
+<form action="POST" >
+<input type="text" value=''>
+<input type="submit" value='搜索'>
+</form>
+
+<div style='text-align:center;padding:0.7em'>
+	<span class='menu'><a href='./index.html'>投 票</a></span>
+	<span class='menu'><a href='./add'>添 加</a></span>
+	<span class='menu'><a href='./backend'>管 理</a></span>
+	<span class='menu'><a href='./login'>登 录</a></span>
+</div>
+
+	<center>
+<br>
+<br>
+<form action="./add" method="POST">
+<table style='background-color:#dddddd;padding:2em'>
+	<tr><td>名称:</td><td><input type='text' name=name value=''></td></tr>
+	<tr><td>作品:</td><td><input type='text' name=works  value=''></td></tr>
+	<tr><td>能力: </td><td><input type='text' name=ability  value=''></td></tr>
+	<tr><td>性别: </td><td>
+		<select name='type'>
+			<option value='female'>女性
+			<option value='male'>男性
+			<option value='unknown'>未知
+		</select>	
+	</td></tr>
+	<tr><td>头像: </td><td><input type='file' name="pic"></td></tr>
+	<tr><td>描述: </td><td><textarea name="describe" cols="50" rows="5"></textarea></td></tr>
+	<tr><td colspan="2" align="center"><br><input type='submit' value="添加人物"></td></tr>
+</table>	
+</form>
+</div>
+</center>
+
+
+</body>
+</html>
