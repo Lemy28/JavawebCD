@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+  <meta content="text/html"; charset="utf-8">
 	<style type="text/css">
 		 ul{
 			background-color: #2f4f4f;
@@ -36,9 +36,9 @@
 <body style='background-color:#D2FFD2'>
 <div float=right>
 	<ul class=daohang>
-		<li ><a href="#">首  页</a></li>
-		<li><a href="./addcharacter.html">添  加</a></li>
-		<li><a href="./backend">后  台</a></li>
+		<li ><a href="./homepage">首  页</a></li>
+		<li><a href="./logged-in/addcharacter.html">添  加</a></li>
+		<li><a href="./logged-in/backend">后  台</a></li>
 		<li><a href="./login.html">登  录</a></li>
 	</ul>
 </div>
@@ -46,9 +46,11 @@
 <center>
   <br>
   <form action="./login" method="POST">
-    <table style='background-color:#dddddd;padding:2em'>
+     <table style='background-color:#dddddd;padding:2em'>
       <tr><td>用 户:</td><td><input type='text' name='user' value=''></td></tr>
       <tr><td>密 码:</td><td><input type='password' name='pass'  value=''></td></tr>
+      <tr><td>验 证:</td><td><input type='text' name='code'  value=''></td></tr>
+      <tr><td>&nbsp;</td><td><img src="./validateCode" /></td></tr>
       <tr><td colspan="2" align="center"><br><input type='submit' value="登 录"></td></tr>
     </table>
   </form>

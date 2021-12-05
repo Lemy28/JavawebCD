@@ -38,21 +38,14 @@
 
 <div float=right>
 	<ul class=daohang>
-		<li ><a href="#">首  页</a></li>
-		<li><a href="./addcharacter">添  加</a></li>
+		<li ><a href="../homepage">首  页</a></li>
+		<li><a href="#">添  加</a></li>
 		<li><a href="./backend">后  台</a></li>
-		<li><a href="./login.html">登  录</a></li>
+		<li><a href="./logout">登  出</a></li>
 	</ul>
 </div>
 
 <div style='text-align:center;padding:0.7em'><h2>添加人物</h2>
-
-<form action="POST" >
-<input type="text" value=''>
-<input type="submit" value='搜索'>
-</form>
-
-
 
 	<center>
 <br>
@@ -60,6 +53,7 @@
 <form action="./add" method="POST">
 <table style='background-color:#dddddd;padding:2em'>
 	<tr><td>名称:</td><td><input type='text' name=name value=''></td></tr>
+	<tr><td>年龄: </td><td><input type='text' name=age  value=''></td></tr>
 	<tr><td>作品:</td><td><input type='text' name=works  value=''></td></tr>
 	<tr><td>能力: </td><td><input type='text' name=ability  value=''></td></tr>
 	<tr><td>性别: </td><td>

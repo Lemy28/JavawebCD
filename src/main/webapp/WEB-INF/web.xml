@@ -3,22 +3,87 @@
   <display-name>FirstServlet</display-name>
   <welcome-file-list>
     <welcome-file>login.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+
+	<servlet>
+		<servlet-name>loginServlet</servlet-name>
+		<servlet-class>swu.doom.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>loginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>logoutServlet</servlet-name>
+		<servlet-class>swu.doom.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logoutServlet</servlet-name>
+		<url-pattern>/logged-in/logout</url-pattern>
+	</servlet-mapping>	
+
+
+
+	<servlet>
+		<servlet-name>loginRequireServlet</servlet-name>
+		<servlet-class>swu.doom.LoginRequireServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>loginRequireServlet</servlet-name>
+		<url-pattern>/loginRequire</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>validateCodeServlet</servlet-name>
+		<servlet-class>swu.doom.ValidateCodeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>validateCodeServlet</servlet-name>
+		<url-pattern>/validateCode</url-pattern>
+	</servlet-mapping>
+
+
+	<filter>
+	   <filter-name>authFilter</filter-name>
+	   <filter-class>swu.doom.AuthFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	   <filter-name>authFilter</filter-name>
+	   <url-pattern>/logged-in/*</url-pattern>
+	</filter-mapping>
+	
   
   <servlet>
-  <servlet-name>servlet01</servlet-name>
-  <servlet-class>swu.doom.servlet01</servlet-class>
+  <servlet-name>searchCharServlet</servlet-name>
+  <servlet-class>swu.doom.SearchCharServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>servlet01</servlet-name>
-    <url-pattern>/demo</url-pattern>
+    <servlet-name>searchCharServlet</servlet-name>
+    <url-pattern>/homepage</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  <servlet-name>listCharServlet</servlet-name>
+  <servlet-class>swu.doom.ListCharServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>listCharServlet</servlet-name>
+    <url-pattern>/logged-in/backend</url-pattern>
+  </servlet-mapping>
+  
+    <filter>
+	   <filter-name>charsetFilter</filter-name>
+	   <filter-class>swu.doom.CharsetFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	   <filter-name>charsetFilter</filter-name>
+	   <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+
+ 
 </web-app>
