@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CharsetFilter extends HttpFilter {
 
-	private static final long serialVersionUID = -2840770222442338931L;
-
 	public void doFilter(HttpServletRequest request,
 			HttpServletResponse response, FilterChain chain)
 			throws java.io.IOException, ServletException {

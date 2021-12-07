@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthFilter extends HttpFilter {
-
-	private static final long serialVersionUID = -2840770222932338931L;
 	
 	public final static String LOGIN_STATUS = "LOGIN_STATUS";	
 	public final static String LOGIN_VALIDATE_CODE = "LOGIN_VALIDATE_CODE";	
@@ -18,11 +16,11 @@ public class AuthFilter extends HttpFilter {
 			HttpServletResponse response, FilterChain chain)
 			throws java.io.IOException, ServletException {
 
-		HttpSession session = request.getSession(true);
-		Boolean status = (Boolean) session.getAttribute(LOGIN_STATUS);
+		HttpSession session = request.getSession(true);//创建会话
+		Boolean status = (Boolean) session.getAttribute(LOGIN_STATUS);//检查登录状态
 
 		if (status == null || status.equals(Boolean.FALSE)) {
-			response.sendRedirect("/VoteSystem/login.html");
+			response.sendRedirect("/VoteSystem/login.html");//重定向
 		} else {
 			chain.doFilter(request, response);
 		}

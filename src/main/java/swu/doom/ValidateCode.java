@@ -13,9 +13,9 @@ import javax.imageio.ImageIO;
 
 public class ValidateCode {
 	
-	 private int width = 100;  	// 定义图片的width
-	 private int height = 30;	// 定义图片的height
-	 private int codeCount = 4;	// 定义图片上显示验证码的个数
+	 private int width = 100;  
+	 private int height = 30;	
+	 private int codeCount = 4;
 	 private int fontHeight = 22;
 	 private BufferedImage codeImage = null;
 	 private String codeString = null;
@@ -49,32 +49,27 @@ public class ValidateCode {
 		gd.fillRect(0, 0, width, height);
 		
 		// 设置字体
-		Font font = new Font("Fixedsys", Font.BOLD, fontHeight);
+		Font font = new Font("Gill Sans", Font.BOLD, fontHeight);
 		gd.setFont(font);
 		
-		// 画边框。
+		// 画边框
 		gd.setColor(Color.BLACK);
 		gd.drawRect(0, 0, width - 1, height - 1);
 		
-		
+		//画字符
 		StringBuffer randomCode = new StringBuffer();		
-		// 随机产生codeCount数字的验证码。
 		for (int i = 0; i < codeCount; i++) {
-			// 得到随机产生的验证码数字。
 			String code = String.valueOf(codeSequence[random.nextInt(this.codeSequence.length)]);
-			// 用随机产生的颜色将验证码绘制到图像中。
 			gd.setColor(this.randomColor());
-			gd.drawString(code, (i + 1) * (this.width / (this.codeCount + 2)), fontHeight - 2);
-			// 将产生的四个随机数组合在一起。
+			gd.drawString(code, (i + 1) * (this.width / (this.codeCount + random.nextInt(5))), fontHeight - random.nextInt(5));
 			randomCode.append(code);
 		}
-		
-		// 随机产生60条干扰线，使图象中的认证码不易被其它程序探测到。	
-		for (int i = 0; i < 60; i++) {
+		//画干扰线
+		for (int i = 0; i < 40; i++) {
 			int x1 = random.nextInt(width);
 			int y1 = random.nextInt(height);
-			int x2 = random.nextInt(width / 4);
-			int y2 = random.nextInt(width / 4);			
+			int x2 = random.nextInt(width / 3);
+			int y2 = random.nextInt(width / 3);			
 			gd.setColor(this.randomColor());			
 			gd.drawLine(x1, y1, x1 + x2, y1 + y2);
 		}
@@ -83,13 +78,12 @@ public class ValidateCode {
 		this.codeImage = buffImg;		
 	}
 	
-	// 产生随机的颜色分量来构造颜色值，这样输出的每位数字的颜色值都将不同。
 	private Color randomColor() {
 		Random random = new Random();
 		int red = 0, green = 0, blue = 0;
 		red = random.nextInt(255);
-		green = random.nextInt(255);
-		blue = random.nextInt(255);
+		green = random.nextInt(200);
+		blue = random.nextInt(100);
 		return new Color(red, green, blue);
 	}
 	

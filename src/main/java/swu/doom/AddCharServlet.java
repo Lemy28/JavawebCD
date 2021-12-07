@@ -15,7 +15,6 @@ import java.util.List;
 
 public class AddCharServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 1139723442711986380L;
 	private static final int MEMORY_THRESHOLD   = 1024 * 1024 * 5;  
 	private static final int MAX_FILE_SIZE      = 1024 * 1024 * 40; 
 	private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; 

@@ -9,8 +9,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ListCharServlet extends HttpServlet {
-
-	private static final long serialVersionUID = 1198763442711986380L;
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		this.doPost(request, response);

@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 
 public class ValidateCodeServlet extends HttpServlet {
 
-    private static final long serialVersionUID = 119877788866686380L;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         this.doPost(request, response);

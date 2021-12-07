@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBUtils {
+	//链接云服务器上的数据库
 	private static String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
 	private static String DB_URL    = "jdbc:mysql://120.25.126.104:3306/javaweb";
 	private static String DB_USER   = "root";

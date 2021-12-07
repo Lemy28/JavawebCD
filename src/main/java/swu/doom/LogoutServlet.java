@@ -8,7 +8,6 @@ import java.io.IOException;
 
 public class LogoutServlet extends HttpServlet {
 
-    private static final long serialVersionUID = 1198763222511986380L;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         this.doPost(request, response);
@@ -16,9 +15,9 @@ public class LogoutServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     	HttpSession session = request.getSession(true);
-    	session.invalidate();
+    	session.invalidate();//将session设置为失效	
     	
-    	response.sendRedirect("/VoteSystem/homepage");
+    	response.sendRedirect("/VoteSystem/homepage");	
     }
 
 }

@@ -42,7 +42,7 @@ public class PageUtils {
 		"<body style='background-color:#D2FFD2'>" +
 		"<div float=right>" +
 		"	<ul class=daohang>" +
-		"		<li ><a href='./homepage'>首  页</a></li>" +
+		"		<li ><a href='./homepage'>排  行</a></li>" +
 		"		<li><a href='./logged-in/addcharacter.html'>添  加</a></li>" +
 		"		<li><a href='./logged-in/backend'>后  台</a></li>" +
 		"		<li><a href='./login.html'>登  录</a></li>" +
@@ -94,7 +94,7 @@ public class PageUtils {
 		"<body style='background-color:#D2FFD2'>" +
 		"<div float=right>" +
 		"	<ul class=daohang>" +
-		"		<li ><a href='../homepage'>首  页</a></li>" +
+		"		<li ><a href='../homepage'>排  行</a></li>" +
 		"		<li><a href='./addcharacter.html'>添  加</a></li>" +
 		"		<li><a href='./backend'>后  台</a></li>" +
 		"		<li><a href='./logout'>登  出</a></li>" +
