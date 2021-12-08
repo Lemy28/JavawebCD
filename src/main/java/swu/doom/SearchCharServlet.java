@@ -3,6 +3,9 @@ package swu.doom;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import swu.doom.character.Character;
+
 import java.io.IOException;
 import java.io.Writer;
 import java.sql.SQLException;

@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import swu.doom.character.Character;
+
 public class DBUtils {
 	//链接云服务器上的数据库
 	private static String DB_DRIVER = "com.mysql.cj.jdbc.Driver";

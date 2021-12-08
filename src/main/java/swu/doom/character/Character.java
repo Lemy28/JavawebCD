@@ -1,4 +1,4 @@
-package swu.doom;
+package swu.doom.character;
 
 public class Character {
 	private int id;
