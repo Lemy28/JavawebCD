@@ -4,28 +4,17 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Marble &mdash; Free HTML5 Bootstrap Website Template by FreeHTML5.co</title>
+	<title>投票系统 &mdash; Free VoteSystem Website by Doom</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FreeHTML5.co" />
 
-  	<!-- 
-	//////////////////////////////////////////////////////
-
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FreeHTML5.co
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
-
-	//////////////////////////////////////////////////////
-	-->
+  
 
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
@@ -40,7 +29,9 @@
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
-
+	
+	<link rel="stylesheet" type="text/css" href="css/box.css" />
+	
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
@@ -74,7 +65,7 @@
 					<li><a href="voteproject.html">投票项目</a></li>
 					<li><a href="voteto.html">参与投票</a></li>
 					<li><a href="about.html">关于作者</a></li>
-					<li class="fh5co-active"><a href="contact.html">联系作者</a></li>
+					<li ><a href="login.html">登陆注册</a></li>
 				</ul>
 			</nav>
 
@@ -96,7 +87,7 @@
 					   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
 					   				<div class="slider-text-inner">
 					   					<h1>欢迎来到投票系统</h1>
-					   					<h2>发起新的投票？请 <a href="http://freehtml5.co/" target="_blank">联系作者</a></h2>
+					   					<h2>发起新的投票？请 <a href="./login">联系作者</a></h2>
 											<p><a class="btn btn-primary btn-demo popup-vimeo" href="https://vimeo.com/channels/staffpicks/93951774"> <i class="icon-monitor"></i> 选择项目</a> <a class="btn btn-primary btn-learn">开始投票<i class="icon-arrow-right3"></i></a></p>
 					   				</div>
 					   			</div>
@@ -111,7 +102,7 @@
 					   				<div class="slider-text-inner">
 					   					<h1>马上登录</h1>
 											<h2>还没有帐号？ <a href="http://freehtml5.co/" target="_blank">立即注册</a></h2>
-											<p><a class="btn btn-primary btn-demo popup-vimeo" href="https://vimeo.com/channels/staffpicks/93951774"> <i class="icon-monitor"></i> 选择项目</a> <a class="btn btn-primary btn-learn">开始投票<i class="icon-arrow-right3"></i></a></p>
+											<p><a class="btn btn-primary btn-demo popup-vimeo tiyan" href="javascript:;" > <i class="icon-monitor"></i> 立即登录</a> <a class="btn btn-primary btn-learn">开始投票<i class="icon-arrow-right3"></i></a></p>
 					   				</div>
 					   			</div>
 					   		</div>
@@ -254,6 +245,129 @@
 		</div>
 	</div>
 
+	
+<!--弹窗开始-->
+<div class="tan" >
+	<div class="box">
+		<div class="form">
+			<span class="close">✖</span>
+			<h3>欢迎来到投票系统</h3>
+			<p class="desc">参加投票前请在此登录</p>
+			<form action="" onSubmit="return false;">
+				<input type="text" name="name" id="name" placeholder="请输入邮箱地址" />
+				<input type="password" name="password" id="passw" placeholder="请输入密码" />
+				<div class="valicode">
+					<input type="text" name="valicode" id="valicode" placeholder="请输入验证码" />
+					<img src="./validateCode" />
+				</div>
+				<div class="error"></div>
+				<input type="submit" id="Submit" value="登录">
+			</form>
+			<p class="reg">
+				<a href="#">立即注册</a>
+			</p>
+		</div>
+	</div>
+</div>
+<!--弹窗结束-->
+<script src="js/box.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function() {
+		//弹窗
+		$('.tiyan').click(function() {
+			$('.tan').show();
+		})
+		//关闭
+		$('.close').click(function() {
+			$('.tan').hide();
+		})
+		//触焦变色
+		$("input").focus(function() {
+			$(this).removeClass('red');
+		});
+		//失去焦点验证当前表单
+
+		$("#name").blur(function() {
+
+			var emailreg = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+			var errtxt = "",
+				name = $('#name').val();
+			if(name == "") {
+				errtxt = "邮箱地址不能为空";
+				$('#name').addClass('red');
+			} else if((!emailreg.test(name))) {
+				errtxt = "请输入正确邮箱地址";
+				$('#name').addClass('red');
+			}else{
+				errtxt = "";
+				$('#name').removeClass('red');
+			}
+			//错误提示消息，有错误则显示，没错误就隐藏
+			showmsg(errtxt);
+		})
+		$("#passw").blur(function() {
+			var errtxt = "",
+				passw = $('#passw').val();
+			if(passw == "") {
+				errtxt = "请输入密码";
+				$('#passw').addClass('red');
+			}else{
+				errtxt = "";
+				$('#passw').removeClass('red');
+			}
+			//错误提示消息，有错误则显示，没错误就隐藏
+			showmsg(errtxt);
+		})
+		$("#valicode").blur(function() {
+			var errtxt = "",
+				valicode = $('#valicode').val();
+			if(valicode == "") {
+				errtxt = "请输入正确的验证码";
+				$('#valicode').addClass('red');
+			}else{
+				errtxt = "";
+				$('#valicode').removeClass('red');
+			}
+			//错误提示消息，有错误则显示，没错误就隐藏
+			showmsg(errtxt);
+		})
+		//验证
+		$('#Submit').click(function() {
+			var thisid = "",
+				errtxt = "";
+			$('input').removeClass('red');
+			var emailreg = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/; //邮箱正则
+			var name = $('input[name=name]').val(),
+				passw = $('input[name=password]').val(),
+				valicode = $('input[name=valicode]').val();
+
+			if(name == "") {
+				errtxt = "邮箱地址不能为空";
+				thisid = "name";
+			} else if((!emailreg.test(name))) {
+				errtxt = "请输入正确邮箱地址";
+				thisid = "name";
+			} else if(passw == "") {
+				errtxt = "请输入密码";
+				thisid = "passw";
+			} else if(valicode == "") {
+				errtxt = "请输入正确的验证码";
+				thisid = "valicode";
+			} else {
+
+			}
+			//错误提示消息，有错误则显示，没错误就隐藏
+			showmsg(errtxt);
+			//错误边框变红
+			thisid ? $('input').removeClass('red').parents('form').find('#' + thisid).focus().addClass('red') : $('#' + thisid).removeClass('red');
+		})
+
+		function showmsg(errtxt) {
+			errtxt ? $('.error').show().text(errtxt) : $('.error').hide();
+		}
+	})
+</script>
+	
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

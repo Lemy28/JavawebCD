@@ -311,6 +311,7 @@ figure figcaption {
   right: 0;
   content: '';
   background: rgba(0, 0, 0, 0.3);
+ 
 }
 #fh5co-hero .flexslider .slides li {
   background-repeat: no-repeat;
