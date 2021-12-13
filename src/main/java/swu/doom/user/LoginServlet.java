@@ -1,4 +1,4 @@
-package swu.doom;
+package swu.doom.user;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

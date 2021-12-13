@@ -1,4 +1,4 @@
-package swu.doom;
+package swu.doom.character;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;

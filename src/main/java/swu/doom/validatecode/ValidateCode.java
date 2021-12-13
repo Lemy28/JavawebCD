@@ -1,4 +1,4 @@
-package swu.doom;
+package swu.doom.validatecode;
 
 import java.awt.Color;
 import java.awt.Font;

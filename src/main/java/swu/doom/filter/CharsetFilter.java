@@ -1,4 +1,4 @@
-package swu.doom;
+package swu.doom.filter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
