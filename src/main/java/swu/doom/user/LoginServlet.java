@@ -4,6 +4,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import swu.doom.filter.AuthFilter;
+
 import java.io.IOException;
 
 public class LoginServlet  extends HttpServlet {
@@ -21,7 +24,7 @@ public class LoginServlet  extends HttpServlet {
         HttpSession session = request.getSession(true);
         String validateCode = (String) session.getAttribute(AuthFilter.LOGIN_VALIDATE_CODE);
         if (validateCode == null || !validateCode.equalsIgnoreCase(code)) {//检查验证码
-        	response.sendRedirect("/VoteSystem/login.html");
+        	response.sendRedirect("/VoteSystem/oldlogin.html");
         	return;
         }
         
@@ -30,7 +33,7 @@ public class LoginServlet  extends HttpServlet {
         		session.setAttribute(AuthFilter.LOGIN_STATUS, Boolean.TRUE);            	
                 response.sendRedirect("/VoteSystem/homepage");
             } else {
-                response.sendRedirect("/VoteSystem/login.html");
+                response.sendRedirect("/VoteSystem/oldlogin.html");
             }
         }
     }

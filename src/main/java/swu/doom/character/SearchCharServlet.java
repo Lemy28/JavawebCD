@@ -4,6 +4,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import swu.doom.DBUtils;
+import swu.doom.PageUtils;
+
 import java.io.IOException;
 import java.io.Writer;
 import java.sql.SQLException;

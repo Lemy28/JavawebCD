@@ -75,6 +75,16 @@
     <url-pattern>/logged-in/backend</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  <servlet-name>addCharServlet</servlet-name>
+  <servlet-class>swu.doom.character.AddCharServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>addCharServlet</servlet-name>
+    <url-pattern>/logged-in/add</url-pattern>
+  </servlet-mapping>
+  
     <filter>
 	   <filter-name>charsetFilter</filter-name>
 	   <filter-class>swu.doom.filter.CharsetFilter</filter-class>
