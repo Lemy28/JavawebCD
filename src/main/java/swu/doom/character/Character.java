@@ -7,6 +7,7 @@ public class Character {
 	private String ability;
 	private String sex;
 	private int age;
+	private int votes;
 	private String pics;
 	public int getId() {
 		return id;
@@ -49,6 +50,12 @@ public class Character {
 	}
 	public void setPics(String pics) {
 		this.pics = pics;
+	}
+	public int getVotes() {
+		return votes;
+	}
+	public void setVotes(int votes) {
+		this.votes = votes;
 	}
 	
 	

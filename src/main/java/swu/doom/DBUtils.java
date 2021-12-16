@@ -21,7 +21,7 @@ public class DBUtils {
 		excute(sql);
 	}
 	
-	public static void update(String sql) throws SQLException {
+	public static void vote(String sql) throws SQLException {
 		excute(sql);
 	}
 		
@@ -60,6 +60,7 @@ public class DBUtils {
 					character.setAge(rs.getInt("age"));
 					character.setAbility(rs.getString("ability"));
 					character.setPics(rs.getString("pics"));
+					character.setVotes(rs.getInt("votes"));
 					characters.add(character);
 				}
 			}

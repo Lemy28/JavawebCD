@@ -89,12 +89,14 @@
 								String end ="</span></div></a></div>";
 								String sql = "SELECT * FROM characters ORDER BY id DESC";
 								List<Character> characters = DBUtils.getCharacters(sql);
-						
+	
 								for(Character character : characters) {
 									StringBuilder front = new StringBuilder();
-									front.append( "<div class=\"col-md-3 col-sm-6 col-padding text-center animate-box\"><a href=\"#\" class=\"work image-popup\" style=\"background-image: ");
-									front.append("url(imgs/").append(character.getPics().replaceAll(",", "")).append(");\"><div class=\"desc\"><h3>");
-									out.println(front+character.getName() + "</h3><span>年龄："+character.getAge()+"</span>"+"<span>能力："+character.getAbility()+"</span>"+"<span>来自："+character.getWorks()+end);
+									front.append( 
+										String.format(	"<div class=\"col-md-3 col-sm-6 col-padding text-center animate-box\"><a href='./vote?id=%s' class=\"work image-popup\" style=\"background-image: ",character.getId())
+											);
+									front.append("url(imgs/").append(character.getPics().replaceAll(",", "")).append(");\"><div class=\"desc\"><h2>");
+									out.println(front+character.getName() + "</h2><span>年龄："+character.getAge()+"</span>"+"<span>能力："+character.getAbility()+"</span>"+"<span>来自："+character.getWorks()+"</span>"+"<br><br><span>票数："+character.getVotes()+end);
 									
 								}
 						%>
