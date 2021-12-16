@@ -1,4 +1,9 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="swu.doom.character.Character" %>
+<%@ page import="swu.doom.DBUtils" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.io.IOException" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -14,7 +19,6 @@
 	<meta name="author" content="FreeHTML5.co" />
 
 
-  	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content=""/>
@@ -62,99 +66,57 @@
 					<li><a href="voteto.html">参与投票</a></li>
 					<li><a href="about.html">关于作者</a></li>
 					<li ><a href="login.html">登陆注册</a></li>
-				</ul>	
+				</ul>
 			</nav>
 
 			<div class="fh5co-footer">
 				<p><small>&copy; 2021javaweb课程项目.</span> <span>Designed by 杜中华&nbsp;<a href="https://github.com/Lemy28" target="_blank">My GitHub</a> </span></small></p>
 			</div>
 
+
 		</aside>
 
 		<div id="fh5co-main">
 			<div class="fh5co-narrow-content">
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">正在投票</h2>
 				<div class="row row-bottom-padded-md">
-					<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-						<img class="img-responsive" src="imgs/1343358_o7soBst4.png" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					</div>
-					<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-						<h2 class="fh5co-heading">关于作者</h2>
-						<p>西南大学计算机学院2020级网络工程专业学生</p>
-						<p>擅长把自己逗乐</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="fh5co-narrow-content">
-					<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Our Services</h2>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="fh5co-icon">
-									<i class="icon-settings"></i>
-								</div>
-								<div class="fh5co-text">
-									<h3>Strategy</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-								</div>
+				
+				
+					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
+						<div class="blog-entry">
+							<a href="#" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
+							<div class="desc">
+								<h3><a href="#">Inspirational Website</a></h3>
+								<span><small>by 华子 </small> / <small>西南大学 </small> / <small> <i class="icon-comment"></i></small></span>
+								<p>Design must be functional and functionality must be translated into visual aesthetics</p>
+								<a href="#" class="lead">Read More <i class="icon-arrow-right3"></i></a>
 							</div>
 						</div>
-						<div class="col-md-6">
-							<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="fh5co-icon">
-									<i class="icon-search4"></i>
-								</div>
-								<div class="fh5co-text">
-									<h3>Explore</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-6">
-							<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="fh5co-icon">
-									<i class="icon-paperplane"></i>
-								</div>
-								<div class="fh5co-text">
-									<h3>Direction</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="fh5co-icon">
-									<i class="icon-params"></i>
-								</div>
-								<div class="fh5co-text">
-									<h3>Expertise</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-		
-			<div class="fh5co-narrow-content">
-				<div class="row">
-					<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
-						<h1 class="fh5co-heading-colored">Get in touch</h1>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-						<p class="fh5co-lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-						<p><a href="#" class="btn btn-primary">Learn More</a></p>
 					</div>
 					
+					
+					
+				</div>
+			</div>
+		
+			<div id="get-in-touch">
+				<div class="fh5co-narrow-content">
+					<div class="row">
+						<div class="col-md-4 animate-box" data-animate-effect="fadeInLeft">
+							<h1 class="fh5co-heading-colored">此网站用于？</h1>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<p class="fh5co-lead">西南大学2020级网络工程专业学生杜中华的课程设计</p>
+							<p><a href="#" class="btn btn-primary">了解更多</a></p>
+						</div>
+						
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
