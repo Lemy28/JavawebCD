@@ -18,16 +18,6 @@
 	<meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FreeHTML5.co" />
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
@@ -51,7 +41,8 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
+	
+	
 	</head>
 	<body>
 	<div id="fh5co-page">
@@ -80,14 +71,12 @@
 
 		<div id="fh5co-main">
 			<div class="fh5co-narrow-content">
-				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">候选名单</h2>
-				<div class="row row-bottom-padded-md">
-				
-						
+				<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">最受欢迎动漫人物</h2>
+				<div class="row row-bottom-padded-md"  style="padding:56px 0 0 0">
 						
 						<%		
 								String end ="</span></div></a></div>";
-								String sql = "SELECT * FROM characters ORDER BY id DESC";
+								String sql = "SELECT * FROM characters ORDER BY votes DESC LIMIT 8";
 								List<Character> characters = DBUtils.getCharacters(sql);
 	
 								for(Character character : characters) {
@@ -97,27 +86,72 @@
 											);
 									front.append("url(imgs/").append(character.getPics().replaceAll(",", "")).append(");\"><div class=\"desc\"><h2>");
 									out.println(front+character.getName() + "</h2><span>年龄："+character.getAge()+"</span>"+"<span>能力："+character.getAbility()+"</span>"+"<span>来自："+character.getWorks()+"</span>"+"<br><br><span>票数："+character.getVotes()+end);
-									
-								}
-						%>
-						
-						
+
+								}%>
 						
 						
 						
 				</div>
+				
+				<div class="row row-bottom-padded-md"   id="characterDiv">
+						
+				</div>
+							
 			</div>
-			
-			
-		
-			
+			<center><button onclick="showCharacters('1')">展示所有</button></center>
 		</div>
-		
-		
-		
-		
-		
 	</div>
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	
+	
+	<script  type="text/javascript">
+	
+   		 function showCharacters(page) {
+   			$.ajax({
+	            url: "./characters?page=" + page,
+	            method: "GET",
+	            dataType: "json"
+	        }).done(function(result){
+	        	updateCharacterTable(result.characters);
+	        	hidebutton();
+	        }).fail(function(xhr, status){
+	            console.log(status);
+	        });
+	
+	        console.log("button clicked!");
+	    }
+	
+	    function updateCharacterTable(characters) {
+	        var d = $("#characterDiv");
+			
+	        for (var i=0; i<characters.length; i++) {
+	            var c = characters[i];
+	            var block = $("<div class=\"col-md-3 col-sm-6 col-padding text-center animate-box fadeInUp animated\"></div>");
+  	            block.append("<a href=\"./vote?id="+ c.id +  "\"class=\"work image-popup\" style=\"background-image: url(imgs/" + c.pics +");\" ><div class=\"desc\"><h2>" + c.name+"</h2><span>年龄：" + c.age +"</span>"+"<span>能力："+ c.ability+"</span>"+"<span>来自："+ c.works  +"</span>"+"<br><br><span>票数：" + c.votes+"</span></div></a>")
+
+	            d.append(block);
+	        }
+	        
+	    }
+	    
+	    function hidebutton(){
+	    	$('button').hide();
+	    }
+	
+	</script>
+
+
+
+
+
+
+
+
+
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
@@ -133,6 +167,9 @@
 	
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
-
+	
+	
+	
+	
 	</body>
 </html>

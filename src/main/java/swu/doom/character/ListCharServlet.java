@@ -56,9 +56,6 @@ public class ListCharServlet extends HttpServlet {
 			sb.append("<td>").append(character.getAbility()).append("</td>");
 			sb.append("<td><img width='100px' src='/VoteSystem/imgs/").append(character.getPics().replaceAll(",", "")).append("'></img></td>");
 			sb.append("<td>").append(
-					String.format("<a href='./VoteChar?id=%s'>投票</a>", character.getId())
-			).append("</td>");
-			sb.append("<td>").append(
 					String.format("<a href='./deleteChar?id=%s'>删除</a>", character.getId())
 			).append("</td>");			
 			sb.append("</tr>");
