@@ -1,9 +1,11 @@
 package swu.doom.character;
-import swu.doom.DBUtils;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import swu.doom.utils.DBUtils;
+
 import java.io.IOException;
 import java.io.Writer;
 import java.sql.SQLException;
@@ -16,9 +18,9 @@ public class AjaxListServlet  extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String page = request.getParameter("page");
+        String all = request.getParameter("all");
 
-        int offset = (Integer.valueOf(page).intValue()) * 8;
+        int offset = (Integer.valueOf(all).intValue()) * 8;
 
         String sql = "SELECT * FROM characters ORDER BY votes DESC LIMIT 20 OFFSET " + offset;
 

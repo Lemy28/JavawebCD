@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import swu.doom.DBUtils;
+import swu.doom.utils.DBUtils;
 
 import java.io.IOException;
 import java.sql.SQLException;

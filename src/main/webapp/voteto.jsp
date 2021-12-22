@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="swu.doom.character.Character" %>
-<%@ page import="swu.doom.DBUtils" %>
+<%@ page import="swu.doom.utils.DBUtils" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.io.IOException" %>
 
@@ -54,7 +54,7 @@
 				<ul>
 					<li><a href="index.html">网站主页</a></li>
 					<li><a href="voteproject.html">投票项目</a></li>
-					<li><a href="voteto.html">参与投票</a></li>
+					<li><a href="voteto.jsp">参与投票</a></li>
 					<li><a href="about.html">关于作者</a></li>
 					<li ><a href="login.html">登陆注册</a></li>
 				</ul>
@@ -110,9 +110,9 @@
 	
 	<script  type="text/javascript">
 	
-   		 function showCharacters(page) {
+   		 function showCharacters(all) {
    			$.ajax({
-	            url: "./characters?page=" + page,
+	            url: "./characters?all=" + all,
 	            method: "GET",
 	            dataType: "json"
 	        }).done(function(result){

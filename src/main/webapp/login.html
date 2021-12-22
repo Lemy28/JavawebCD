@@ -13,19 +13,6 @@
 	<meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FreeHTML5.co" />
 
-  	<!-- 
-	//////////////////////////////////////////////////////
-
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FreeHTML5.co
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
-
-	//////////////////////////////////////////////////////
-	-->
 
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
@@ -73,7 +60,7 @@
 				<ul>
 					<li><a href="index.html">网站主页</a></li>
 					<li><a href="voteproject.html">投票项目</a></li>
-					<li><a href="voteto.html">参与投票</a></li>
+					<li><a href="voteto.jsp">参与投票</a></li>
 					<li><a href="about.html">关于作者</a></li>
 					<li ><a href="login.html">登陆注册</a></li>
 				</ul>
@@ -131,22 +118,22 @@
 				
 				<div class="row">
 					<div class="col-md-4">
-						<h2>立即登录</h2>
+						<h2>参与投票？请先登录</h2>
 					</div>
 				</div>
-				<form action="./login">
+				<form action="./login" method="POST">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="邮箱账号">
+										<input  name='user' type="text" class="form-control" placeholder="邮箱账号">
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" placeholder="密码">
+										<input  name='pass' type="password" class="form-control" placeholder="密码">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="验证码">
+										<input   name='code' type="text" class="form-control" placeholder="验证码">
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -180,14 +167,14 @@
 		<div class="form">
 			<span class="close">✖</span>
 			<h3>欢迎来到投票系统</h3>
-			<p class="desc">没有账号？立即注册吧</p>
-			<form action="./signin"   method="POST" onSubmit="return false;">
-				<input type="text" name="name" id="name" placeholder="请输入邮箱地址作为账号" />
-				<input type="password" name="password" id="passw" placeholder="请输入密码" />
+			<p class="desc">没有账号？立即注册!</p>
+			<form action="./signup"   method="POST" onSubmit="return isCorrect();">
+				<input type="text" name="name" id="name" placeholder="邮箱地址" />
+				<input type="password" name="password" id="passw" placeholder="密码" />
 				<div class="valicode">
-					<input type="text" name="valicode" id="valicode" placeholder="请输入邮箱收到的验证码" />
+					<input type="text" name="valicode" id="valicode" placeholder="邀请码" />
 				</div>
-				<div class="error"></div>
+				<div class="error" id="error"></div>
 				<input type="submit" id="Submit" value="注册">
 			</form>
 		</div>
@@ -220,7 +207,7 @@
 				errtxt = "邮箱地址不能为空";
 				$('#name').addClass('red');
 			} else if((!emailreg.test(name))) {
-				errtxt = "请输入正确邮箱地址";
+				errtxt = "请输入正确的邮箱地址";
 				$('#name').addClass('red');
 			}else{
 				errtxt = "";
@@ -246,15 +233,21 @@
 			var errtxt = "",
 				valicode = $('#valicode').val();
 			if(valicode == "") {
-				errtxt = "请输入正确的验证码";
+				errtxt = "请输入邀请码";
 				$('#valicode').addClass('red');
-			}else{
+			}else if(valicode != "172673"){
+				errtxt = "请输入正确的邀请码";
+				$('#valicode').addClass('red');
+			}
+			else{
 				errtxt = "";
 				$('#valicode').removeClass('red');
 			}
 			//错误提示消息，有错误则显示，没错误就隐藏
 			showmsg(errtxt);
 		})
+		
+		
 		//验证
 		$('#Submit').click(function() {
 			var thisid = "",
@@ -269,16 +262,16 @@
 				errtxt = "邮箱地址不能为空";
 				thisid = "name";
 			} else if((!emailreg.test(name))) {
-				errtxt = "请输入正确邮箱地址";
+				errtxt = "请输入正确的邮箱地址";
 				thisid = "name";
 			} else if(passw == "") {
 				errtxt = "请输入密码";
 				thisid = "passw";
-			} else if(valicode == "") {
-				errtxt = "请输入正确的验证码";
+			} else if(valicode != "172673") {
+				errtxt = "请输入正确的邀请码";
 				thisid = "valicode";
 			} else {
-
+				
 			}
 			//错误提示消息，有错误则显示，没错误就隐藏
 			showmsg(errtxt);
@@ -290,6 +283,14 @@
 			errtxt ? $('.error').show().text(errtxt) : $('.error').hide();
 		}
 	})
+	//判断信息是否有误
+	 function isCorrect(){  
+   	 if($("#error").is(':hidden')){  
+        return true;
+   		 }else{  
+       	return false;
+        }  
+}  
 </script>
 	
 

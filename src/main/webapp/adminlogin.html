@@ -31,26 +31,23 @@
 			background-color: #2f6f4f;
 		}
 	</style>
-<title>JavaWeb投票系统</title>
+<title>投票系统管理员登录</title>
 </head>
 <body style='background-color:#D2FFD2'>
 <div float=right>
 	<ul class=daohang>
-		<li ><a href="./homepage">排  行</a></li>
+		<li ><a href="./homepage">主 页</a></li>
 		<li><a href="./logged-in/addcharacter.html">添  加</a></li>
 		<li><a href="./logged-in/backend">后  台</a></li>
-		<li><a href="./login.html">登  录</a></li>
 	</ul>
 </div>
 <div style='text-align:center;padding:0.7em'><h1>投票系统</h1></div>
 <center>
   <br>
-  <form action="./login" method="POST">
+  <form action="./adminlogin" method="POST">
      <table style='background-color:#dddddd;padding:2em'>
       <tr><td>用 户:</td><td><input type='text' name='user' value=''></td></tr>
       <tr><td>密 码:</td><td><input type='password' name='pass'  value=''></td></tr>
-      <tr><td>验 证:</td><td><input type='text' name='code'  value=''></td></tr>
-      <tr><td>&nbsp;</td><td><img src="./validateCode" /></td></tr>
       <tr><td colspan="2" align="center"><br><input type='submit' value="登 录"></td></tr>
     </table>
   </form>

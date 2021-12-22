@@ -20,7 +20,7 @@ public class AuthFilter extends HttpFilter {
 		Boolean status = (Boolean) session.getAttribute(LOGIN_STATUS);//检查登录状态
 
 		if (status == null || status.equals(Boolean.FALSE)) {
-			response.sendRedirect("/VoteSystem/oldlogin.html");//重定向
+			response.sendRedirect("/VoteSystem/login.html");//重定向
 		} else {
 			chain.doFilter(request, response);
 		}

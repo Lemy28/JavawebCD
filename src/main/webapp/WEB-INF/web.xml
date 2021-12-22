@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>VoteSystem</display-name>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   
 
@@ -23,6 +23,15 @@
 		<servlet-name>logoutServlet</servlet-name>
 		<url-pattern>/logged-in/logout</url-pattern>
 	</servlet-mapping>	
+
+	<servlet>
+		<servlet-name>signupServlet</servlet-name>
+		<servlet-class>swu.doom.user.SignUpServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>signupServlet</servlet-name>
+		<url-pattern>/signup</url-pattern>
+	</servlet-mapping>
 
 
 
@@ -51,7 +60,7 @@
 	</filter>
 	<filter-mapping>
 	   <filter-name>authFilter</filter-name>
-	   <url-pattern>/logged-in/*</url-pattern>
+	   <url-pattern>/voteto.jsp</url-pattern>
 	</filter-mapping>
 	
   

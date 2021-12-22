@@ -4,8 +4,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import swu.doom.DBUtils;
-import swu.doom.PageUtils;
+import swu.doom.utils.DBUtils;
+import swu.doom.utils.PageUtils;
 
 import java.io.IOException;
 import java.io.Writer;

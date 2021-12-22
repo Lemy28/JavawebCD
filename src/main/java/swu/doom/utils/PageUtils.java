@@ -1,4 +1,4 @@
-package swu.doom;
+package swu.doom.utils;
 
 public class PageUtils {
 

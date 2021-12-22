@@ -61,8 +61,7 @@ public class ValidateCode {
 		for (int i = 0; i < codeCount; i++) {
 			String code = String.valueOf(codeSequence[random.nextInt(this.codeSequence.length)]);
 			gd.setColor(this.randomColor());
-			gd.drawString(code, (i + 1) * (this.width / (this.codeCount + random.nextInt(5))), fontHeight - random.nextInt(5));
-			randomCode.append(code);
+			gd.drawString(code, (i + 1) * (this.width / (this.codeCount + 2)), fontHeight - 2);			randomCode.append(code);
 		}
 		//画干扰线
 		for (int i = 0; i < 40; i++) {

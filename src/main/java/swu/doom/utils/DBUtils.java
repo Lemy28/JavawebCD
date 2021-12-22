@@ -1,10 +1,11 @@
-package swu.doom;
+package swu.doom.utils;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import swu.doom.character.Character;
+import swu.doom.user.User;
 
 public class DBUtils {
 	//链接云服务器上的数据库
@@ -25,6 +26,8 @@ public class DBUtils {
 		excute(sql);
 	}
 		
+	
+	
 	private static void excute(String sql) throws SQLException {
 		try {
 			Class.forName(DB_DRIVER);
@@ -68,5 +71,29 @@ public class DBUtils {
 		
 		return characters;
 	}
-
+	
+	public static User getUser(String sql) throws SQLException {
+		try {
+			Class.forName(DB_DRIVER);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		User user = new User();
+		try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+			try (Statement statement = connection.createStatement()) {
+				ResultSet rs = statement.executeQuery(sql);
+				user.setId(rs.getInt("id"));
+				user.setName(rs.getString("name"));
+				user.setPassword(rs.getString("password"));
+			}
+		}
+			return user;
+	}
+	
+	
+	
 }
+	
+		
+	

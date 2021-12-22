@@ -17,7 +17,7 @@ public class LogoutServlet extends HttpServlet {
     	HttpSession session = request.getSession(true);
     	session.invalidate();//将session设置为失效	
     	
-    	response.sendRedirect("/VoteSystem/homepage");	
+    	response.sendRedirect("/VoteSystem");	
     }
 
 }
