@@ -12,7 +12,7 @@ javaweb作业
 ![image](https://user-images.githubusercontent.com/73866622/146147865-98c307ff-46fc-4a60-b6ef-ff3ea0852fb5.png)
 尝试：
 （1）
-form表单中添加以下属性<form action="" method="" enctype="multipart/form-data" accept-charset="UTF-8"></form>
+form表单中添加以下属性 “ action="" method="" enctype="multipart/form-data" accept-charset="UTF-8" ”
 无法解决问题
 （2）设置 request.setCharacterEncoding("UTF-8");意料之中，也无法解决，因为过滤器里已经添加了该语句。
 （3）使用item.getString("UTF-8");问题解决
