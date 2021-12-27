@@ -30,3 +30,7 @@ commons-fileupload上传中如果form中的参数有中文，此时用item.getSt
 ## 2021年12月17日 22:41:57  解决ajax问题
 
 ## 2021年12月22日 18:16:11  完成用户注册功能
+
+## 2021年12月27日 16:15:26  出现  Illegal operation on empty result set. 错误
+原因分析：ResultSet 是个结果集。不能直接取记录的信息，比如：rs.getString("name");需要循环历遍的，那怕结果集返回的只有一条记录。
+
